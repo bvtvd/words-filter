@@ -53,8 +53,9 @@ class Filter
      * @param array $dict
      * @return $this
      */
-    public function dict(array $dict)
+    public function dict($dict)
     {
+        if(!is_array($dict)) throw new \Exception('Argument must be an Array');
         $this->dict = $dict;
         $this->pattern = join($this->dict, '|');
         return $this;
