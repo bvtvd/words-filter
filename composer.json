@@ -14,7 +14,10 @@
     },
     "autoload": {
         "psr-4": {
-            "bvtvd\\": "src/"
+            "bvtvd\\": "src/",
+            "Test\\": "test/"
         }
+    },
+    "require-dev": {
     }
 }

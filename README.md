@@ -7,7 +7,7 @@ composer require bvtvd/words-filter
 
 使用:
 ```php
-use bvtvd\Filter\Filter;
+use bvtvd\Filter;
 
 
 $text = '你的观点很新颖, 但是从历史的维度看, 还存在狭隘的内部缺陷! to be or not to be, that's a question!';
