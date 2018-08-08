@@ -1,6 +1,6 @@
 <?php
 
-namespace bvtvd\Filter;
+namespace bvtvd;
 
 
 class Filter
