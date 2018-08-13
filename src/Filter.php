@@ -29,7 +29,7 @@ class Filter
      * special chars
      * @var string
      */
-    protected $special = '*.?+$^[](){}|\/';
+    protected $special = '\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\\|\/';
 
     /**
      * Filter constructor.
@@ -65,7 +65,7 @@ class Filter
         if(!is_array($dict)) throw new \Exception('Argument must be an Array');
         $this->dict = array_map(function($item){
             // handler special chars
-            return preg_replace("/([$this->special])/i", '\${1}', $item);
+            return preg_replace("/($this->special)/i", '\\\${1}', $item);
         }, $dict);
         $this->pattern = join($this->dict, '|');
         return $this;
