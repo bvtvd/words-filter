@@ -24,6 +24,13 @@ class Filter
     protected $blocker = '*';
 
     protected $pattern;
+
+    /**
+     * special chars
+     * @var string
+     */
+    protected $special = '*.?+$^[](){}|\/';
+
     /**
      * Filter constructor.
      * @param string $text
@@ -56,7 +63,10 @@ class Filter
     public function dict($dict)
     {
         if(!is_array($dict)) throw new \Exception('Argument must be an Array');
-        $this->dict = $dict;
+        $this->dict = array_map(function($item){
+            // handler special chars
+            return preg_replace("/([$this->special])/i", '\${1}', $item);
+        }, $dict);
         $this->pattern = join($this->dict, '|');
         return $this;
     }
